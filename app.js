@@ -22,7 +22,7 @@ const createKey = (color, note, oct) => {
   key.textContent = text;
 
   let audio = document.createElement("audio");
-  audio.src = `../audio/${fileName}.wav`;
+  audio.src = `./audio/${fileName}.wav`;
   key.appendChild(audio);
   key.addEventListener("click", (e) => {
     if(key.repeat) return
