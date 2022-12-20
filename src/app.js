@@ -24,7 +24,8 @@ const createKey = (color, note, oct) => {
   let audio = document.createElement("audio");
   audio.src = `../audio/${fileName}.wav`;
   key.appendChild(audio);
-  key.addEventListener("click", () => {
+  key.addEventListener("click", (e) => {
+    if(key.repeat) return
     audio.currentTime = 0;
     audio.play();
   });
