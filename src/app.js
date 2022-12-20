@@ -1,5 +1,5 @@
 const keyboard = document.querySelector(".keyboard");
-const notes = ["c", "d", "e", "f", "g","a", "h"];
+const notes = ["c", "d", "e", "f", "g", "a", "h"];
 const init = () => {
   for (let i = 1; i <= 2; i++) {
     for (let j = 0; j < 7; j++) {
