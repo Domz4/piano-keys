@@ -1,7 +1,5 @@
 const keyboard = document.querySelector(".keyboard");
-const audio = document.querySelector("#audio");
-const notes = ["c", "d", "e", "f", "g", "h", "a"];
-
+const notes = ["c", "d", "e", "f", "g","a", "h"];
 const init = () => {
   for (let i = 1; i <= 2; i++) {
     for (let j = 0; j < 7; j++) {
@@ -15,11 +13,21 @@ const init = () => {
 const createKey = (color, note, oct) => {
   let key = document.createElement("button");
   key.className = `piano_key note_${color}`;
+
   let text = (key.dataset.letterNote =
-    color === "white" ? note + oct : note + "#" + oct);
-  key.dataset.letterNoteFileName =
-    color === "white" ? note + oct : note + "S" + oct;
-  key.textContent = text.toUpperCase();
+    color === "white" ? note + oct : note + "#" + oct).toUpperCase();
+  let fileName = (key.dataset.letterNoteFileName =
+    color === "white" ? note + oct : note + "S" + oct);
+
+  key.textContent = text;
+
+  let audio = document.createElement("audio");
+  audio.src = `../audio/${fileName}.wav`;
+  key.appendChild(audio);
+  key.addEventListener("click", () => {
+    audio.currentTime = 0;
+    audio.play();
+  });
   return key;
 };
 init();
